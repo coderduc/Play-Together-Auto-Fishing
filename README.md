@@ -1,6 +1,8 @@
 # Play-Together-Auto-Fishing
-Author: CoderDuc || Language: AutoIT
-A simple auto fishing tool with ADB and HGP technical
+Descriptions:
+- A simple auto fishing tool with ADB and HGP technical
+- Author: CoderDuc
+- Language: AutoIT
 
 Features:
 - Auto Fishing
