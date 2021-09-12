@@ -15,7 +15,7 @@ Hotkey:
 - Press DEL for exit the tool
 
 How to use:
-Notice: Turn on USB Debugger for adb service
+- Turn on USB Debugger for adb service
 - Firstly u need to set up the Emulator title to: CoderDuc
 - Secondly go to a place that u wanna fishing and open the tool
 - Until a small rectangle appears then press HOME for starting the progress
