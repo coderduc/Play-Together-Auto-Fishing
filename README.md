@@ -1,2 +1,19 @@
 # Play-Together-Auto-Fishing
-A simple auto fishing with ADB and HandleGetPixel technic
+Author: CoderDuc
+Language: AutoIT
+A simple auto fishing tool with ADB and HGP technical
+
+Features:
+- Auto Fishing
+- Auto Fix Rod
+- Hide & Show Emulator for doing other staffs
+
+Hotkey:
+- Press HOME for toggling the progress
+- Press END for hiding or showing the emulator
+- Press DEL for exit the tool
+
+How to use:
+- Firstly u need to set up the Emulator title to: CoderDuc
+- Secondly go to a place that u wanna fishing and open the tool
+- Until a small rectangle appears then press HOME for starting the progress
