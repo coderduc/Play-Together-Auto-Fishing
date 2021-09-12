@@ -31,6 +31,7 @@ Global $p_bFixRod3 = [878, 260]
 Global $p_bFixRod4 = [581, 441]
 Global $p_bPayFixRod = [499,408]
 Global $p_bAcceptFixRod = [484,409]
+Global $rodSelected
 Global $color
 Global $isRan = False
 Global $isWindowHide = False
@@ -236,14 +237,6 @@ Func EntryPoint($iRod)
 		fix_rod($iRod)
 		If isPlayerIdle() = True Then drop_rod()
 	WEnd
-EndFunc
-
-;Function to set param to the EntryPoint
-Func setEntryPoint()
-    Switch @HotKeyPressed
-		Case "{Home}"
-			EntryPoint(4)
-    EndSwitch
 EndFunc
 
 Func myExit()
