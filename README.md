@@ -12,7 +12,7 @@ Features:
 Hotkey:
 - Press HOME for toggling the progress
 - Press END for hiding or showing the emulator
-- Press DEL for exit the tool
+- Press Page Down for exit the tool
 
 How to use:
 - Turn on USB Debugger for adb service
