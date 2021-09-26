@@ -1,6 +1,6 @@
 # Play-Together-Auto-Fishing
 Descriptions:
-- A simple auto fishing tool with ADB and HGP technical
+- A simple auto fishing tool with ADB and Memory technical
 - Author: CoderDuc
 - Language: AutoIT
 
@@ -11,7 +11,6 @@ Features:
 
 Hotkey:
 - Press HOME for toggling the progress
-- Press END for hiding or showing the emulator
 - Press Page Down for exit the tool
 
 How to use:
