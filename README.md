@@ -18,4 +18,4 @@ How to use:
 - Turn on USB Debugger for adb service
 - Firstly u need to set up the Emulator title to: CoderDuc
 - Secondly go to a place that u wanna fishing and open the tool
-- Until a small rectangle appears then press HOME for starting the progress
+- Until the message "Done ! Press HOME for starting detect" then press HOME key and enjoy
