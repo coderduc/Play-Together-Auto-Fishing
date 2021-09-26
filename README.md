@@ -9,9 +9,11 @@ Features:
 - Auto Fix Rod
 - Hide & Show Emulator for doing other staffs
 - Count fish catched
+- 
 Hotkey:
 - Press HOME for toggling the progress
 - Press Page Down for exit the tool
+
 How to use:
 - Turn on USB Debugger for adb service
 - Firstly u need to set up the Emulator title to: CoderDuc
