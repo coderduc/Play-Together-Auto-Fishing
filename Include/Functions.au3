@@ -4,7 +4,6 @@
 #include <WindowsConstants.au3>
 #include <Array.au3>
 #include <demem.au3>
-Global $iX1, $iY1, $iX2, $iY2
 Global $p_bDropFishingRod = [762,326]
 Global $p_bPullFishingRod = [843,428]
 Global $p_bPreserveFish = [636,419]
@@ -17,14 +16,6 @@ Global $p_FishingRod3 = [878,197]
 Global $p_FishingRod4 = [581,384]
 Global $p_DisableFishingRod = [730,410]
 Global $p_bClosePlayerBag = [929,73]
-Global $p_bisRodOpened1 = [553,149]
-Global $p_bisRodOpened2 = [701,149]
-Global $p_bisRodOpened3 = [851,145]
-Global $p_bisRodOpened4 = [555,366]
-Global $p_bCheckRod1 = [620,292]
-Global $p_bCheckRod2 = [770,292]
-Global $p_bCheckRod3 = [916,291]
-Global $p_bCheckRod4 = [621,480]
 Global $p_bFixRod1 = [580, 260]
 Global $p_bFixRod2 = [728, 258]
 Global $p_bFixRod3 = [878, 260]
@@ -176,7 +167,7 @@ Func first_start($iRod)
 	WinActivate($Emulator_hWnd)
 	ToolTip("Tool State: Setting up" ,0,0,"Thông báo",1,0)
 	$Pointer = getPointer()
-	ToolTip("Done ! Press HOME to start detect" ,0,0,"Thông báo",1,0)
+	ToolTip("Done ! Press HOME to starting detect" ,0,0,"Thông báo",1,0)
 	$rodState = demem_readInt($hProcess,$Pointer - 0x18)
 	If isRodOpened() = True Then
 		drop_rod()
