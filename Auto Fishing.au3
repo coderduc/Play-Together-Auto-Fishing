@@ -10,6 +10,7 @@
 #cs
 	Pointer: \x10\x80\x00\x00\x00\x00\x00\x00\x00\x80\x00\x00\x00\x00\x06 xx????xxxx????x
 	+ 10: playerState ==> 4 = Catched | 0 = Idle | 3 = Fishing | 8 = Got Fish | 6 == Rod Broken | 10 == isRodBroken
+	- 18: isRodOpened ==> 3 = Opened | 1 = Idle
 #ce
 #include "Functions.au3"
 Opt("CaretCoordMode",2)
