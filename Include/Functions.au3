@@ -1,10 +1,7 @@
 #include <Process.au3>
-#include <GDIPlus.au3>
-#include <GDIPlusConstants.au3>
 #include <Misc.au3>
 #include <GuiConstantsEx.au3>
 #include <WindowsConstants.au3>
-#include "_HandleImgSearch.au3"
 #include <Array.au3>
 #include <demem.au3>
 Global $iX1, $iY1, $iX2, $iY2
@@ -38,6 +35,7 @@ Global $pid
 Global $hProcess
 Global $rodSelected
 Global $playerState
+Global $rodState
 Global $isRan = False
 Global $errorCount = 0
 Global $iFishCount = 0
@@ -136,20 +134,8 @@ Func open_utilitybag()
 	Return True
 EndFunc
 
-Func isRodOpened($iRod)
-	Local $bool
-	Local $isOpenRod
-	Switch $iRod
-		Case 1
-			$isOpenRod = _HandleGetPixel($Emulator_hWnd,$p_bisRodOpened1[0],$p_bisRodOpened1[1]);Check if the rod 1 is opened
-		Case 2
-			$isOpenRod = _HandleGetPixel($Emulator_hWnd,$p_bisRodOpened2[0],$p_bisRodOpened2[1]);Check if the rod 2 is opened
-		Case 3
-			$isOpenRod = _HandleGetPixel($Emulator_hWnd,$p_bisRodOpened3[0],$p_bisRodOpened3[1]);Check if the rod 3 is opened
-		Case 4
-			$isOpenRod = _HandleGetPixel($Emulator_hWnd,$p_bisRodOpened4[0],$p_bisRodOpened4[1]);Check if the rod 4 is opened
-	EndSwitch
-	Return ($isOpenRod = 0x82FB28) ? True : False
+Func isRodOpened()
+	Return ($rodState == 103) ? True : False
 EndFunc
 
 Func open_fishingrod($iRod)
@@ -175,11 +161,6 @@ Func close_playerbag()
 	Return True
 EndFunc
 
-Func isPlayerBagOpened()
-	Local $isBagOpened = _HandleGetPixel($Emulator_hWnd,887, 463) ;Check if the player bag is opened
-	Return ($isBagOpened = 0xE85D3C) ? True : False
-EndFunc
-
 Func getPointer()
 	$pid = ProcessExists("LdBoxHeadless.exe")
 	ProcessWait($pid)
@@ -196,13 +177,12 @@ Func first_start($iRod)
 	ToolTip("Tool State: Setting up" ,0,0,"Thông báo",1,0)
 	$Pointer = getPointer()
 	ToolTip("Done ! Press HOME to start detect" ,0,0,"Thông báo",1,0)
-	If isPlayerBagOpened() = True Then close_playerbag()
-	open_playerbag()
-	open_utilitybag()
-	If isRodOpened($iRod) = True Then
-		close_playerbag()
+	$rodState = demem_readInt($hProcess,$Pointer - 0x18)
+	If isRodOpened() = True Then
 		drop_rod()
 	Else
+		open_playerbag()
+		open_utilitybag()
 		open_fishingrod($iRod)
 		drop_rod()
 	EndIf
@@ -216,7 +196,6 @@ Func EntryPoint($iRod)
 	While $isRan
 		$playerState = demem_readInt($hProcess,$Pointer + 0x10)
 		If $playerState == 4 Then
-			Sleep(10)
 			pull_rod()
 		EndIf
 		If isGetFish() = True Then
@@ -224,11 +203,6 @@ Func EntryPoint($iRod)
 			preserve_fish()
 			$iFishCount+= 1
 			preserve_trash()
-		EndIf
-		If isPlayerBagOpened() = True Then
-			$errorCount += 1
-		Else
-			$errorCount = 0
 		EndIf
 		If $errorCount = 10 Then
 			close_playerbag()
