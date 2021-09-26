@@ -15,8 +15,6 @@
 #include "Functions.au3"
 Opt("CaretCoordMode",2)
 Opt("MouseCoordMode",2)
-Opt("PixelCoordMode",2)
-;First_rod to set the rectangle
 If @AutoItX64 Then
 	demem_dllOpen("demem64.dll")
 Else
