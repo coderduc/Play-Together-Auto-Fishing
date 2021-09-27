@@ -1,6 +1,6 @@
 # Play-Together-Auto-Fishing
 Descriptions:
-- A simple auto fishing tool with ADB,Memory and HGP technical
+- A simple auto fishing tool with ADB,Memory technical
 - Author: CoderDuc
 - Language: AutoIT
 
