@@ -202,7 +202,7 @@ Func EntryPoint($iRod)
 EndFunc
 
 Func myExit()
-	MsgBox(64,"Thông báo","Số bạn câu được: " & $iFishCount,3)
+	MsgBox(64,"Thông báo","Số cá bạn câu được: " & $iFishCount,3)
 	WinSetTrans($Emulator_hWnd,"",255)
 	Exit
 EndFunc
