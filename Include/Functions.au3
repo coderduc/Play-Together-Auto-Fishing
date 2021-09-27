@@ -32,6 +32,7 @@ Global $isRan = False
 Global $errorCount = 0
 Global $iFishCount = 0
 Global $Pointer
+Global $oCount
 Global $hDLL = DllOpen("user32.dll")
 ;Get ADB Device
 Global $device = adb_getOnlineDevice()
@@ -187,13 +188,17 @@ Func EntryPoint($iRod)
 	ToolTip("Tool State: " & $state,0,0,"Thông báo",1,0)
 	While $isRan
 		$playerState = demem_readInt($hProcess,$Pointer + 0x10)
+		ConsoleWrite($playerState & @CRLF)
 		If $playerState == 4 Then
 			pull_rod()
+		EndIf
+		If $playerState == 6 Then
+			Sleep(1000)
+			$iFishCount+= 1
 		EndIf
 		If isGetFish() = True Then
 			Sleep(60)
 			preserve_fish()
-			If $playerState == 6 Then $iFishCount+= 1
 			preserve_trash()
 		EndIf
 		If isRodBroken() = True Then fix_rod($iRod)
