@@ -168,7 +168,7 @@ Func first_start($iRod)
 	WinActivate($Emulator_hWnd)
 	ToolTip("Tool State: Setting up" ,0,0,"Thông báo",1,0)
 	$Pointer = getPointer()
-	ToolTip("Done ! Press HOME to start detect" ,0,0,"Thông báo",1,0)
+	ToolTip("Done ! Press HOME to starting detect" ,0,0,"Thông báo",1,0)
 	$rodState = demem_readInt($hProcess,$Pointer - 0x18)
 	If isRodOpened() = True Then
 		drop_rod()
@@ -193,7 +193,7 @@ Func EntryPoint($iRod)
 		If isGetFish() = True Then
 			Sleep(60)
 			preserve_fish()
-			$iFishCount+= 1
+			If $playerState == 6 Then $iFishCount+= 1
 			preserve_trash()
 		EndIf
 		If isRodBroken() = True Then fix_rod($iRod)
