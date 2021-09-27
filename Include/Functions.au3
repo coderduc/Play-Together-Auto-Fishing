@@ -4,6 +4,7 @@
 #include <WindowsConstants.au3>
 #include <Array.au3>
 #include <demem.au3>
+Global $iX1, $iY1, $iX2, $iY2
 Global $p_bDropFishingRod = [762,326]
 Global $p_bPullFishingRod = [843,428]
 Global $p_bPreserveFish = [636,419]
@@ -15,7 +16,7 @@ Global $p_FishingRod2 = [730,196]
 Global $p_FishingRod3 = [878,197]
 Global $p_FishingRod4 = [581,384]
 Global $p_DisableFishingRod = [730,410]
-Global $p_bClosePlayerBag = [929,73]
+Global $p_bClosePlayerBag = [928,41]
 Global $p_bFixRod1 = [580, 260]
 Global $p_bFixRod2 = [728, 258]
 Global $p_bFixRod3 = [878, 260]
@@ -167,7 +168,7 @@ Func first_start($iRod)
 	WinActivate($Emulator_hWnd)
 	ToolTip("Tool State: Setting up" ,0,0,"Thông báo",1,0)
 	$Pointer = getPointer()
-	ToolTip("Done ! Press HOME to starting detect" ,0,0,"Thông báo",1,0)
+	ToolTip("Done ! Press HOME to start detect" ,0,0,"Thông báo",1,0)
 	$rodState = demem_readInt($hProcess,$Pointer - 0x18)
 	If isRodOpened() = True Then
 		drop_rod()
@@ -195,16 +196,13 @@ Func EntryPoint($iRod)
 			$iFishCount+= 1
 			preserve_trash()
 		EndIf
-		If $errorCount = 10 Then
-			close_playerbag()
-			$errorCount = 0
-		EndIf
 		If isRodBroken() = True Then fix_rod($iRod)
 		If isPlayerIdle() == True Then drop_rod()
 	WEnd
 EndFunc
 
 Func myExit()
-	MsgBox(64,"Thông báo","Số cá bạn câu được: " & $iFishCount,3)
+	MsgBox(64,"Thông báo","Số bạn câu được: " & $iFishCount,3)
+	WinSetTrans($Emulator_hWnd,"",255)
 	Exit
 EndFunc
