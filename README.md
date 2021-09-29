@@ -21,13 +21,13 @@ How to use:
 - Secondly go to a place that u wanna fishing and open the tool
 - Choose option for your emulator:
 
-+, 1 = LDPlayer
+  +, 1 = LDPlayer
 
-+, 2 = Memuplay
+  +, 2 = Memuplay
 
-+, 3 = Nox Player
+  +, 3 = Nox Player
 
-+, 4 = BlueStacks
+  +, 4 = BlueStacks
 
 - Then choose your rod position. This code currently support 4 postions
 
