@@ -19,3 +19,9 @@ How to use:
 - Firstly u need to set up the Emulator title to: CoderDuc
 - Secondly go to a place that u wanna fishing and open the tool
 - Until the message "Done ! Press HOME for starting detect" then press HOME key and enjoy
+
+Note: 
+- If you don't use LDPlayer then change the ProcessExist(...) in Include/Function.au3 file:
++, Memuplay ==> 
+![Untitled](https://user-images.githubusercontent.com/46291704/135266677-426d56c6-8415-4948-b309-9012ed3db29a.png)
+
