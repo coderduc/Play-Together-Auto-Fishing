@@ -24,5 +24,6 @@ Note:
 - If you don't use LDPlayer then change the ProcessExist(...) in Include/Function.au3 file:
 
 +, Memuplay ==> 
++, BlueStacks ==> HD-Player.exe
 ![Untitled](https://user-images.githubusercontent.com/46291704/135266677-426d56c6-8415-4948-b309-9012ed3db29a.png)
 
