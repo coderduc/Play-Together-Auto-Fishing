@@ -25,6 +25,7 @@ Global $p_bPayFixRod = [499,408]
 Global $p_bAcceptFixRod = [484,409]
 Global $pid
 Global $hProcess
+Global $proc
 Global $rodSelected
 Global $playerState
 Global $rodState
@@ -154,8 +155,9 @@ Func close_playerbag()
 	Return True
 EndFunc
 
-Func getPointer()
-	$pid = ProcessExists("LdBoxHeadless.exe")
+Func getPointer($Emulator)
+	$proc = ($Emulator = "1") ? "LdBoxHeadless.exe" : ($Emulator = "2") ? "MemuHeadless.exe" : ($Emulator = "3") ? "NoxVMHandle.exe" : ($Emulator = "4") ? "HD-Player.exe" : ""
+	$pid = ProcessExists($proc)
 	ProcessWait($pid)
 	$hProcess = demem_open($pid)
 	If $hProcess = False Then
@@ -168,7 +170,7 @@ EndFunc
 Func first_start($iRod,$Emulator)
 	WinActivate($Emulator_hWnd)
 	ToolTip("Tool State: Setting up" ,0,0,"Thông báo",1,0)
-	$Pointer = getPointer()
+	$Pointer = getPointer($Emulator)
 	ToolTip("Done ! Press HOME to starting detect" ,0,0,"Thông báo",1,0)
 	$rodState = demem_readInt($hProcess,$Pointer - 0x18)
 	If isRodOpened() = True Then
