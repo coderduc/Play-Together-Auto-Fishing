@@ -9,6 +9,7 @@ Features:
 - Auto Fix Rod
 - Hide & Show Emulator for doing other staffs
 - Count fish catched
+- Support almost Emulator
 
 Hotkey:
 - Press HOME for toggling the progress
