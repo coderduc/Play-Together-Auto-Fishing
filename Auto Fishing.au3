@@ -24,14 +24,14 @@ If Not demem_isDllLoaded() Then
 	ConsoleWrite(StringFormat("!> Failed to load demem library\n"))
 	Exit
 EndIf
-$rodSelected = InputBox("Thông báo","Chọn cần bạn muốn sử dụng: ")
-If $rodSelected = "" Then
-	MsgBox(16,"Thông báo","Bạn chưa chọn cần. Vui lòng thử lại !!!",3)
-	Exit
-EndIf
 $Emulator = InputBox("Thông báo",StringFormat("Lựa chọn giả lập của bạn: \n1 = LDPlayer\n2 = Memuplay\n3 = Nox Player\n4 = BlueStacks"))
 If $Emulator = "" And $Emulator > 5 Then
 	MsgBox(16,"Thông báo","Bạn chưa chọn giả lập. Vui lòng thử lại !!!",3)
+	Exit
+EndIf
+$rodSelected = InputBox("Thông báo","Chọn cần bạn muốn sử dụng: ")
+If $rodSelected = "" Then
+	MsgBox(16,"Thông báo","Bạn chưa chọn cần. Vui lòng thử lại !!!",3)
 	Exit
 EndIf
 first_start($rodSelected,$Emulator)
