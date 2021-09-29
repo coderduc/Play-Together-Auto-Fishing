@@ -25,7 +25,7 @@ If Not demem_isDllLoaded() Then
 	Exit
 EndIf
 $Emulator = InputBox("Thông báo",StringFormat("Lựa chọn giả lập của bạn: \n1 = LDPlayer\n2 = Memuplay\n3 = Nox Player\n4 = BlueStacks"))
-If $Emulator = "" And $Emulator > 5 Then
+If $Emulator = "" Or $Emulator > 5 Then
 	MsgBox(16,"Thông báo","Bạn chưa chọn giả lập. Vui lòng thử lại !!!",3)
 	Exit
 EndIf
