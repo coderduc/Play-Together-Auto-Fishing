@@ -28,4 +28,6 @@ How to use:
 
 +, 4 = BlueStacks
 
+- Then choose your rod position. This code currently support 4 postions
+
 - Until the message "Done ! Press HOME for starting detect" then press HOME key and enjoy
