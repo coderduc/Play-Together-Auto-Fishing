@@ -21,7 +21,7 @@ Else
 	demem_dllOpen("demem.dll")
 EndIf
 If Not demem_isDllLoaded() Then
-	ConsoleWrite(StringFormat("!> Failed to load demem library\n"))
+	MsgBox(StringFormat("Không tìm thấy thư viện demem.dll"))
 	Exit
 EndIf
 $Emulator = InputBox("Thông báo",StringFormat("Lựa chọn giả lập của bạn: \n1 = LDPlayer\n2 = Memuplay\n3 = Nox Player\n4 = BlueStacks"))
