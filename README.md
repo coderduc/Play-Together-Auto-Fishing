@@ -18,16 +18,14 @@ How to use:
 - Turn on USB Debugger for adb service
 - Firstly u need to set up the Emulator title to: CoderDuc
 - Secondly go to a place that u wanna fishing and open the tool
+- Choose option for your emulator:
+
++, 1 = LDPlayer
+
++, 2 = Memuplay
+
++, 3 = Nox Player
+
++, 4 = BlueStacks
+
 - Until the message "Done ! Press HOME for starting detect" then press HOME key and enjoy
-
-Note: 
-- If you don't use LDPlayer then change the ProcessExist(...) in Include/Function.au3 file:
-
-+, Memuplay ==> MemuHeadless.exe
-
-+, BlueStacks ==> HD-Player.exe
-
-+, LDPlayer ==> LdBoxHeadless.exe
-
-![Untitled](https://user-images.githubusercontent.com/46291704/135266677-426d56c6-8415-4948-b309-9012ed3db29a.png)
-
