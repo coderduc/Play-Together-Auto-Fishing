@@ -13,6 +13,8 @@
 	- 18: isRodOpened ==> 3 = Opened | 1 = Idle
 #ce
 #include "Functions.au3"
+#NoTrayIcon
+#RequireAdmin
 Opt("CaretCoordMode",2)
 Opt("MouseCoordMode",2)
 If @AutoItX64 Then
@@ -21,7 +23,7 @@ Else
 	demem_dllOpen("demem.dll")
 EndIf
 If Not demem_isDllLoaded() Then
-	MsgBox(StringFormat("Không tìm thấy thư viện demem.dll"))
+	ConsoleWrite(StringFormat("!> Failed to load demem library\n"))
 	Exit
 EndIf
 $Emulator = InputBox("Thông báo",StringFormat("Lựa chọn giả lập của bạn: \n1 = LDPlayer\n2 = Memuplay\n3 = Nox Player\n4 = BlueStacks"))
