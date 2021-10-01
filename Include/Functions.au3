@@ -156,7 +156,7 @@ Func close_playerbag()
 EndFunc
 
 Func getPointer($Emulator)
-	$proc = ($Emulator = "1") ? "LdBoxHeadless.exe" : ($Emulator = "2") ? "MemuHeadless.exe" : ($Emulator = "3") ? "NoxVMHandle.exe" : ($Emulator = "4") ? "HD-Player.exe" : ""
+	$proc = ($Emulator = "1") ? "LdVBoxHeadless.exe" : ($Emulator = "2") ? "MemuHeadless.exe" : ($Emulator = "3") ? "NoxVMHandle.exe" : ($Emulator = "4") ? "HD-Player.exe" : ""
 	$pid = ProcessExists($proc)
 	ProcessWait($pid)
 	$hProcess = demem_open($pid)
