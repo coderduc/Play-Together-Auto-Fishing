@@ -8,9 +8,9 @@
 #AutoIt3Wrapper_Res_LegalCopyright=CoderDuc
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #cs
-	Pointer: \x10\x80\x00\x03\x10\x00\x00\x00\x00\x80\x00\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x01\x00 000000000000000000000000?????????000000000000000000000000000000000000000000000000
-	+ 10: playerState ==> 4 = Catched | 0 = Idle | 3 = Fishing | 8 = Got Fish | 6 == Rod Broken | 10 == isRodBroken
-	- 18: isRodOpened ==> 3 = Opened | 1 = Idle
+	Pointer: 80 3F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ?? 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ?? ?? ?? ?? 10 80 00 03 10 00 00 00 00 80 00 03 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00
+	+ 5A: playerState ==> 4 = Catched | 0 = Idle | 3 = Fishing | 8 = Got Fish | 6 == Rod Broken | 10 == isRodBroken | 7 == Miss Fish
+	+ 1A: isRodOpened ==> 103 = Opened | 1 = Idle
 #ce
 #include "Functions.au3"
 #NoTrayIcon
