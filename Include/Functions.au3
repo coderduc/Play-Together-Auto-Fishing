@@ -10,7 +10,7 @@ Global $p_bPullFishingRod = [843,428]
 Global $p_bPreserveFish = [636,419]
 Global $p_bPreserveTrash = [770, 453]
 Global $p_bPlayerBag = [925,290]
-Global $p_bUtilityBag = [694,41]
+Global $p_bUtilityBag = [763,36]
 Global $p_FishingRod1 = [577,201]
 Global $p_FishingRod2 = [730,196]
 Global $p_FishingRod3 = [878,197]
@@ -35,6 +35,8 @@ Global $iFishCount = 0
 Global $Pointer
 Global $oCount
 Global $hDLL = DllOpen("user32.dll")
+Global $offRodState = 0x5C
+Global $offplayerState = 0x1C
 ;Get ADB Device
 Global $device = adb_getOnlineDevice()
 Global $Emulator_hWnd = ControlGetHandle("CoderDuc","","")
@@ -66,7 +68,7 @@ Func cmd($command)
 EndFunc
 
 Func isPlayerIdle()
-	Return ($playerState == 0) ? True : False
+	Return ($playerState == 0) ? True : False 
 EndFunc
 
 Func isRodBroken()
@@ -86,11 +88,11 @@ Func fix_rod($iRod)
 	Case 4
 		adb_click($device,$p_bFixRod4[0],$p_bFixRod4[1])
 	EndSwitch
-	Sleep(1000)
+	Sleep(500)
 	adb_click($device,$p_bPayFixRod[0],$p_bPayFixRod[1])
-	Sleep(1000)
+	Sleep(500)
 	adb_click($device,$p_bAcceptFixRod[0],$p_bAcceptFixRod[1])
-	Sleep(1000)
+	Sleep(500)
 	adb_click($device,$p_bClosePlayerBag[0],$p_bClosePlayerBag[1])
 EndFunc
 
@@ -164,7 +166,7 @@ Func getPointer($Emulator)
 		MsgBox(16,"Thông báo",StringFormat("Lỗi khi lấy process của giả lập !!!"))
 		Exit
 	EndIf
-	Return demem_scanAOB($hProcess, "10 80 00 03 10 00 00 00 00 80 00 03 ?? ?? ?? ?? 00 00 00 00 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 ?? 01 01 00", 1)[0]
+	Return demem_scanAOB($hProcess, "?? ?? ?? 69 ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 ?? ?? ?? 69 01 00 00 00 00 00 00 00 01 00 00 00", 1)[0]
 EndFunc
 
 Func first_start($iRod,$Emulator)
@@ -172,7 +174,7 @@ Func first_start($iRod,$Emulator)
 	ToolTip("Tool State: Setting up" ,0,0,"Thông báo",1,0)
 	$Pointer = getPointer($Emulator)
 	ToolTip("Done ! Press HOME to starting detect" ,0,0,"Thông báo",1,0)
-	$rodState = demem_readInt($hProcess,$Pointer - 0x18)
+	$rodState = demem_readInt($hProcess,$Pointer - $offRodState)
 	If isRodOpened() = True Then
 		drop_rod()
 	Else
@@ -189,8 +191,7 @@ Func EntryPoint($iRod)
 	Local $state = ($isRan = True) ? "On" : "Off"
 	ToolTip("Tool State: " & $state,0,0,"Thông báo",1,0)
 	While $isRan
-		$playerState = demem_readInt($hProcess,$Pointer + 0x10)
-		ConsoleWrite($playerState & @CRLF)
+		$playerState = demem_readInt($hProcess,$Pointer - $offplayerState)
 		If $playerState == 4 Then
 			pull_rod()
 		EndIf
